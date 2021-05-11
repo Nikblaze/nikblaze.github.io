@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Star wars</title>
+  </head>
+  <link rel="stylesheet" href="style.css">
+
+  <body>
+  <div class="colours">
+        <div class="gr">
+          <input type="radio" class="colour green" name="color" checked>
+        <label for="green">Green</label>
+        </div>
+        <div class="bl">
+          <input type="radio" class="colour blue" name="color">
+          <label for="blue">Blue</label>
+        </div>
+        <div class="ye">
+          <input type="radio" class="colour yellow" name="color">
+          <label for="yellow">Yellow</label>
+        </div>
+
+        <div class="pu">
+          <input type="radio" class="colour purple" name="color">
+          <label for="purple">Purple</label>
+        </div>
+
+      <div class="rd">
+        <input type="radio" class="colour red" name="color">
+        <label for="red">Red</label>
+      </div>
+
+</div>
+    <div class="sword">
+      <div class="metal">
+      </div>
+      <div class="handle">
+        <button type="button" class="on"></button>
+      </div>
+    </div>
+
+<script>
+  let but=document.querySelector('.on');
+  let metal=document.querySelector('.metal');
+  let handle=document.querySelector('.handle');
+
+  let sword=document.querySelector('.sword');
+  let ison=false;
+  let gr=document.querySelector('.green');
+  let ye=document.querySelector('.yellow');
+  let bl=document.querySelector('.blue');
+  let pr=document.querySelector('.purple');
+  let rd=document.querySelector('.red');
+  let colour=document.querySelectorAll("input[name='color']");
+  colour.forEach((e) => {
+    e.addEventListener('change',()=>{
+      if(gr.checked){
+        document.documentElement.style.setProperty('--blade-hue','120');
+      }
+      if(ye.checked){
+        document.documentElement.style.setProperty('--blade-hue','60');
+      }
+      if(bl.checked){
+        document.documentElement.style.setProperty('--blade-hue','195');
+      }
+      if(pr.checked){
+        document.documentElement.style.setProperty('--blade-hue','290');
+      }
+      if(rd.checked){
+        document.documentElement.style.setProperty('--blade-hue','360');
+      }
+
+    });
+  });
+
+    but.addEventListener('click',()=>{
+    if(ison){
+      metal.style.height='0rem';
+      ison=false;
+    }
+    else{
+      metal.style.height='33rem';
+      ison=true;
+    }
+  });
+sword.addEventListener('mouseenter',(e)=>{
+metal.style.transform="translateZ(300px)";
+handle.style.transform="translateZ(300px)";
+
+});
+sword.addEventListener('mouseleave',(e)=>{
+  metal.style.transform="translateZ(0px)";
+  handle.style.transform="translateZ(0px)";
+});
+</script>
+  </body>
+</html>
